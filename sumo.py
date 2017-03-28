@@ -17,7 +17,7 @@ rightMotor = LargeMotor('outA');
 leftMotor = LargeMotor('outD');
 
 #Important 'Constants'
-TURN_SPEED = 800;
+TURN_SPEED = 1000;
 MINIMUM_DETECT_DISTANCE = 650;
 FORWARD_LENIANCY = 1;
 
@@ -59,7 +59,7 @@ def initialHold():
     while (time.time() - start < 3.0):
         pass;
     mobile = True;
-    print("MOBILIZED");
+    print("Mobilized");
 
 def charge():
     moveForward(-800);
@@ -73,14 +73,13 @@ def scanForOpponent():
     headed_direction = gyro.value();
     print("Opponent Found");
 
-begin = True;
+begin = False;
 #Main Below Here
 while (not begin):
-    if (button.check_buttons(buttons=['left'])):
+    if (button.check_buttons(buttons=['enter'])):
         begin = True;
         print("Holding 3 Seconds");
 while (checkManualExit()):
-    print(sonic.value());
     if (not mobile):
         initialHold();
     if (sonic.value() <= MINIMUM_DETECT_DISTANCE):
@@ -88,4 +87,3 @@ while (checkManualExit()):
     else: 
         scanForOpponent();
     
-        
