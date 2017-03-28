@@ -10,4 +10,6 @@ Then simply just alternates between "searching" and "charging".
 
 Known Issues:
 --------------
-If the SONAR is apart of the collision face - then the distance that the SONAR value returns will fluctuate hugely anywhere from 0 to 2550. Solution is to not have the SONAR as part of the robot's collision face - rather housed more 'within' the robot.
+If the SONAR is apart of the collision face - then the distance that the SONAR value returns (if it is point blank touching the opponent)
+will fluctuate hugely anywhere from 0 to 2550. Solution is to not have the SONAR as part of the robot's collision face - rather housed
+more 'within' the robot.
