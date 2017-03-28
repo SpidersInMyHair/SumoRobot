@@ -8,8 +8,6 @@ When user presses the button on EV3 brick - waits 3 seconds as required.
 Then simply just alternates between "searching" and "charging".
 
 
-Current Bugs:
+Known Issues:
 --------------
-Since the SONAR is housed right at the front of the robot - any front-collision that the robot faces will make the SONAR value go
-crazy since it goes crazy at extremely small distances.
-SOLUTION would be to: House the SONAR at least 15mm to 20mm from the front-collision face.
+If the SONAR is apart of the collision face - then the distance that the SONAR value returns will fluctuate hugely anywhere from 0 to 2550. Solution is to not have the SONAR as part of the robot's collision face - rather housed more 'within' the robot.
