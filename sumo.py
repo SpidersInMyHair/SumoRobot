@@ -51,7 +51,8 @@ class Tracking(object):
             self.sonar_distances.pop();
 	
     # Defines the target as being lost when all (SONAR_CHECK_LENGTH) values are greater than the MINIMUM_DETECT_DISTANCE.
-    # This way if the robot is correctly charging the opponent and recieves one or two 'junk' values from the sonar - it won't start turning due to a false SONAR reading.
+    # This way if the robot is correctly charging the opponent and recieves one or two 'junk' values from the
+    # sonar - it won't start turning due to a false SONAR reading.
     def targetLost(self):
         lost = True;
         for i in range(0, len(self.sonar_distances)):
