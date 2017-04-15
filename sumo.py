@@ -144,9 +144,12 @@ while (checkManualExit()):
     if (not mobile):
         initialHold();
     # Always feeding the tracker with new sonic values.	
-    opp_tracker.addSonarValue(sonic.value());  
+    opp_tracker.addSonarValue(sonic.value()); 
+    # Check if robot's back is on the ring circumference. If so, above all, move forward.
+    if (color.value() < COLOR_THRESHOLD):
+	moveForward(1000);	
     # Below is where the robot chooses and alternates between the main 'Scanning' and 'Charging' phase.
-    if (opp_tracker.targetLost() or opp_tracker.getNumberStored() != SONAR_CHECK_LENGTH):
+    elif (opp_tracker.targetLost() or opp_tracker.getNumberStored() != SONAR_CHECK_LENGTH):
         scanForOpponent();
     else: 
         charge();
