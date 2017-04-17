@@ -17,14 +17,13 @@ rightMotor = LargeMotor('outA');
 leftMotor = LargeMotor('outD');
 
 #Sensor Modes
-color.mode='COL-REFLECT';
+color.mode = 'COL-REFLECT';
 
 #Important 'Constants'
 TURN_SPEED = 350;
 MINIMUM_DETECT_DISTANCE = 800;
-MINIMUM_COLOR_THRESHOLD = 1;
 SONAR_CHECK_LENGTH = 5;
-FORWARD_LENIANCY = 1;
+COLOR_THRESHOLD = 11;
 
 #Global Variables
 mobile = False;
@@ -55,12 +54,14 @@ class Tracking(object):
     # sonar - it won't start turning due to a false SONAR reading.
     def targetLost(self):
         lost = True;
+	# Check that all of the stored sonar distances are less than MINIMUM_DETECT_DISTANCE to return True.
         for i in range(0, len(self.sonar_distances)):
             if (self.sonar_distances[i] < MINIMUM_DETECT_DISTANCE):
                 lost = False;
         return lost;
 
     def targetFound(self):
+	# Check that all of the stored sonar distances are greater than MINIMUM_DETECT_DISTANCE to return True.
         found = True*(len(self.sonar_distances) == SONAR_CHECK_LENGTH);
         for i in range(0, len(self.sonar_distances)):
             if (self.sonar_distances[i] > MINIMUM_DETECT_DISTANCE):
