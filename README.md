@@ -1,5 +1,9 @@
 # SumoRobot
 
+Written by Rishad Mahbub
+For ENGG1000
+Dated 2017S1
+
 At the moment:
 ---------------
 Compiles then waits for user to press a button. 
